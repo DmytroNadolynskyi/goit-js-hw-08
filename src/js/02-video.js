@@ -11,9 +11,10 @@ function throttlePlay ({ seconds }) {
     localStorage.setItem(SAVE_TIME, seconds)
 }
 setCurrentTime()
-function setCurrentTime(){
-    if(!localStorage.getItem(SAVE_TIME)){
+function setCurrentTime() {
+    const SAVED_TIME =  localStorage.getItem(SAVE_TIME)
+    if(!SAVED_TIME){
         return
     }
-    player.setCurrentTime(localStorage.getItem(SAVE_TIME))
+    player.setCurrentTime(SAVED_TIME)
 }
