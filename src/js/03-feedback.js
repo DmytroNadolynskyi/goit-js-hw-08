@@ -9,10 +9,10 @@ formEl.addEventListener('submit', onFormSubmit);
 formEl.addEventListener('input', throttle(onFormInput, 666));
 
 
-function onFormInput(evt) {
+function onFormInput(e) {
   let persistedFilters = localStorage.getItem(LOCALSTORAGE_KEY);
   persistedFilters = persistedFilters ? JSON.parse(persistedFilters) : {};
-  persistedFilters[evt.target.name] = evt.target.value;
+  persistedFilters[e.target.name] = e.target.value;
     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(persistedFilters));
     
 }
@@ -27,12 +27,12 @@ function initForm() {
   }
 }
 
-function onFormSubmit(evt) {
-  evt.preventDefault();
-  const formData = new FormData(formEl);
-  formData.forEach((value, name) => console.log(value, name));
-  evt.currentTarget.reset();
-  localStorage.removeItem(LOCALSTORAGE_KEY);
+function onFormSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(formEl);
+    formData.forEach((value, name) => console.log(value, name));
+    e.currentTarget.reset();
+    localStorage.removeItem(LOCALSTORAGE_KEY);
 }
 
 
