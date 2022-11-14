@@ -33,6 +33,6 @@ function onFormSubmit(e) {
     formData.forEach((value, name) => console.log(value, name));
     e.currentTarget.reset();
     localStorage.removeItem(LOCALSTORAGE_KEY);
-}
+};
 
 
